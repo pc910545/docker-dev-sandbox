@@ -1,0 +1,30 @@
+version: '3.9'
+x-logging:
+  &default-logging
+  options:
+    max-size: '10m'
+    max-file: '1'
+  driver: json-file
+
+services:
+  oracle-db:
+    container_name: oracle-db
+    image: doctorkirk/oracle-19c:19.9
+    restart: unless-stopped
+    environment:
+      ORACLE_SID: ${ORACLE_SID:-devDb}
+      SYS_PASSWORD: ${ORACLE_SYS_PASSWORD:-mypassword}
+      ORACLE_PWD: ${ORACLE_PWD:-mypassword}
+      ORACLE_CHARACTERSET: ${ORACLE_CHARACTERSET:-AL16UTF8}
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle-data:/opt/oracle/oradata
+      - ./ddl:/opt/oracle/scripts/startup
+    logging: *default-logging
+
+networks:
+  default:
+    name: ${SANDBOX_PROJECT}
+volumes:
+  oracle-data: {}
