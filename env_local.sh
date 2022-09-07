@@ -8,7 +8,7 @@ export ORACLE_PROJECT="docker-dev-oracle";
 export ORACLE_COMPOSE_FILE='docker-compose-oracle.yaml';
 
 export KAFKA_PROJECT="docker-dev-kafka";
-export KAFKA_COMPOSE_FILE='docker-compose-kafka.yaml';
+export KAFKA_COMPOSE_FILE='docker-compose-authKafka.yaml';
 
 export REDIS_PROJECT="docker-dev-redis";
 export REDIS_COMPOSE_FILE='docker-compose-redis.yaml';
