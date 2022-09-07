@@ -19,7 +19,7 @@ services:
   auth-kafka:
     container_name: auth-kafka
     image: bitnami/kafka:3.2.1
-    hostname: kafka.local.techM.TWN-TP.org
+    hostname: kafka.local.techM.twn-tp.org
     ports:
       - "9092:9092"
     volumes:
